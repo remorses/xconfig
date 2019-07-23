@@ -18,7 +18,6 @@ setup(
     url='https://github.com/remorses/TODO',
     keywords=['xconfig', 'config', 'yaml'],
     install_requires=[x for x in open('./requirements.txt').read().strip().split('\n') if x.strip()],
-    package_data={'': ['*.yaml', '*.json', '*.yml']},
     include_package_data=True,
     classifiers=[
 
