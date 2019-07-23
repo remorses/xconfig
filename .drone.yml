@@ -1,12 +1,10 @@
 kind: pipeline
 name: default
 
-
 trigger:
   ref:
     exclude:
     - refs/tags/*
-
 
 steps:
 - name: test
