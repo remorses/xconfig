@@ -9,13 +9,15 @@ class Dumper(yaml.Dumper):
 dumps = lambda x: yaml.dump(x, Dumper=Dumper, default_flow_style=False)
 
 class Config:
-    def __init__(self, filename):
+    def __init__(self, filename, default={}):
         if not os.path.exists(filename):
-            self.content = {}
-            open(filename, 'w').close()
+            self.content = default
+            # with open(filename, 'w') as f:
+            #     f.write(default)
         else:
             with open(filename,) as f:
-                self.content = yaml.safe_load(f)
+                data = yaml.safe_load(f) or {}
+                self.content = {**default, **data}
         self.filename = filename
         
     
