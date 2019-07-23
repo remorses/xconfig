@@ -7,6 +7,7 @@ trigger:
     exclude:
     - refs/tags/*
 
+    
 steps:
 - name: test
   image: python:3.7-alpine
