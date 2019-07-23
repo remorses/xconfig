@@ -57,10 +57,3 @@ class Config:
     def __repr__(self):
         return 'Config(filename="' + self.filename + '", data= ' + json.dumps(self.content, indent=4, default=str) + ')\n'
 
-
-config = Config('./ciao.yaml')
-
-# writes a new field in config
-config.push(f'cose.cosa', 'ciao')
-
-print(config['cose']['cosa'])
