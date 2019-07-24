@@ -12,6 +12,7 @@ class Config:
     def __init__(self, filename, default={}):
         if not os.path.exists(filename):
             self.content = default
+            self.default = default
             # with open(filename, 'w') as f:
             #     f.write(default)
         else:
@@ -49,6 +50,11 @@ class Config:
             f.write(data)
 
     def __getitem__(self, name):
+        filename = self.filename
+        if os.path.exists(filename):
+            with open(filename,) as f:
+                data = yaml.safe_load(f) or {}
+                self.content = {**self.default, **data, **self.content}
         return self.content[name]
     
     def delete(self):
