@@ -5,7 +5,7 @@ __pycache__/
 test.yaml
 # C extensions
 *.so
-
+play.py
 # Distribution / packaging
 .Python
 build/
