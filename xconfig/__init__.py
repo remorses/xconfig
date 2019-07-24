@@ -25,7 +25,7 @@ class Config:
     def write(self, prop, value):
         content = self.content
         for part in prop.split('.')[:-1]:
-            content[part] = {}
+            content[part] = content[part] if part in content else {}
             content = content[part]
         content[prop.split('.')[-1]] = value
         with open(self.filename, 'w') as f:
